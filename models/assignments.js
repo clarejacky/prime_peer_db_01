@@ -4,7 +4,7 @@ var assignmentsSchema = new mongoose.Schema({
     name: String,
     score: Number,
     rank: Number,
-    dateCompleted: String
+    dateCompleted: Date
 });
 
 module.exports = mongoose.model('assignments', assignmentsSchema);
