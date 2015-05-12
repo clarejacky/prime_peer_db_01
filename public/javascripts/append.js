@@ -10,28 +10,15 @@ function loadAssignment(event){
     event.preventDefault();
     $.ajax({
         type: "GET",
-        dataype: "json",
+        datatype: "json",
         url:'/assignments',
         success: function(response){
             console.log(response);
             data = response;
             console.log("hi ajax is running");
-            for (var i = 1; i < data.length; i ++){
+            for (var i = 0; i < data.length; i ++){
                 $('.data').append("<div><p>"+data[i].name+"</p><p>"+data[i].score+"</p><p>"+data[i].rank+"</p><button class='remove' data-id="+data[i]._id+">Remove</button></div>");
             }
-            $('.data').on("click", ".remove", function(){
-                console.log($(this).data("id"))
-                $.ajax({
-                    type: "DELETE",
-                    dataype: "json",
-                    url:'/assignments/'+$(this).data("id"),
-                    success: function(response){
-                        console.log(response);
-                    }
-                });
-                $(this).parent().empty();
-
-            });
         }
     });
 }
@@ -39,13 +26,27 @@ function loadAssignment(event){
 
 $(document).ready(function (){
 
-    loadAssignment(event, data);
+    loadAssignment(event);
 
     $('.submit').on("click", function() {
-        $('.data').empty();
-        loadAssignment(event, data);
+        //$('.data').empty();
+        loadAssignment(event);
     });
 
+    $('.data').on("click", ".remove", function(){
+        $.ajax({
+            type: "DELETE",
+            dataype: "json",
+            url:'/assignments/'+$(this).data("id"),
+            success: function(response){
+                console.log(response);
+            },
+            error: function(err){
+                console.log("error"+err);
+            }
+        });
+        $(this).parent().empty();
+    });
 
 
 

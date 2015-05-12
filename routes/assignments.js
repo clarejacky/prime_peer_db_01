@@ -6,8 +6,8 @@ var assignments = require('../models/assignments.js');
 
 
 router.get("/", function(req, res, next){
-    assignments.find(function(err, assignments){
-        res.json(assignments);
+    assignments.find(function(err, assingments){
+        res.json(assingments);
     });
 });
 
@@ -25,7 +25,7 @@ router.delete("/:id", function(req,res,next){
        }
     res.json(post);
    });
-    });
+});
 
 
 
