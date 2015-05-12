@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var assignmentsSchema = new mongoose.Schema({
     name: String,
-    score: Number,
-    rank: Number,
+    score: Double,
+    rank: Double,
     dateCompleted: Date
 });
 

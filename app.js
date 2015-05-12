@@ -36,7 +36,7 @@ app.use('/users', users);
 
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/todoAPI";
+var mongoURI = "mongodb://localhost:27017/assignments";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function (err) {
   if (err) {
@@ -50,14 +50,7 @@ MongoDB.once('open', function () {
   console.log('mongodb connection open');
 });
 
-//var MongoClient = require('mongodb').MongoClient;
-//
-//MongoClient.connect("mongodb://localhost:27017/clientDb", function(err, db) {
-//  if(!err) {
-//    console.log("We are connected");
-//  }
-//});
-// catch 404 and forward to error handler
+
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
