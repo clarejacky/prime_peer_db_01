@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                     "jquery/dist/jquery.min.js",
                     "jquery/dist/jquery.min.map"
                 ],
-                "dest": 'server/public/assets/vendors/'
+                "dest": 'public/scripts/'
             }
         }
     });

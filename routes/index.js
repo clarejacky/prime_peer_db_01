@@ -3,9 +3,10 @@ var router = express.Router();
 var path = require('path');
 var assignments = require('../models/assignments.js');
 
-router.get("/", function(req,res,next){
-  console.log("got this far");
-  res.sendFile(path.resolve(__dirname, '../views/index.html'));
+router.get('/', function(request, response){
+    var file = request.params[0] || '../views/index.html';
+    response.sendFile(path.join(__dirname, file));
+
 });
 
 router.post("/", function(req,res,next){
@@ -14,6 +15,5 @@ router.post("/", function(req,res,next){
     res.json(post);
   })
 });
-
 
 module.exports = router;
