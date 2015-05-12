@@ -27,15 +27,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/assignments', assignment);
 
-//var mongoose = require('mongoose');
-//var MongoClient = require('mongodb').MongoClient;
-//
-//MongoClient.connect("mongodb://localhost:27017/clientDb", function(err, db){
-//  if(!err) {
-//    console.log("We are connected");
-//  }
-//});
-
 var mongoose = require('mongoose');
 
 var mongoURI = "mongodb://localhost:27017/assignments";
