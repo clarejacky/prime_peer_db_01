@@ -10,7 +10,7 @@ router.get('/', function(request, response){
 });
 
 router.post("/", function(req,res,next){
-  console.log(req.body);
+  console.log("This is working: " + req.body);
   assignments.create(req.body, function(err, post){
     res.json(post);
   })
