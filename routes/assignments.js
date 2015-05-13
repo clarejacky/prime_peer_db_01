@@ -18,6 +18,16 @@ router.post("/", function(req,res,next){
     })
 });
 
+router.put("/:id", function(req,res,next){
+    assignments.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+        if(err){
+            console.log("Error", err);
+        }
+        res.json(post);
+    });
+});
+
+
 router.delete("/:id", function(req,res,next){
    assignments.findByIdAndRemove(req.params.id, req.body, function(err, post){
        if(err){
